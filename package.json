@@ -1,0 +1,11 @@
+{
+  "name": "entry-mega",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ]
+  },
+  "packageManager": "yarn@4.5.1"
+}
