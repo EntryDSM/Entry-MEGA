@@ -5,5 +5,5 @@
     { "path": "./tsconfig.node.json" }
   ],
   "extends": "../tsconfig.base.json",
-  "include": ["./src"]
+  "include": ["./src", "vite-env.d.ts"]
 }
