@@ -28,5 +28,7 @@
     "format": "prettier --cache --write .",
     "lint": "eslint --cache .",
     "prepare": "husky"
+  "dependencies": {
+    "@emotion/react": "^11.13.5"
   }
 }
