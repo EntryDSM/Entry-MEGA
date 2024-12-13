@@ -9,10 +9,25 @@
   },
   "packageManager": "yarn@4.5.1",
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "eslint": "^9.14.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "typescript": "^5.6.3"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --cache --write",
+      "eslint --cache --fix --max-warnings=0"
+    ]
+  },
+  "scripts": {
+    "postinstall": "husky install",
+    "format": "prettier --cache --write .",
+    "lint": "eslint --cache .",
+    "prepare": "husky"
   "dependencies": {
     "@emotion/react": "^11.13.5"
   }
