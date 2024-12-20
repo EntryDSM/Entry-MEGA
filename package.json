@@ -14,7 +14,6 @@
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "eslint": "^9.14.0",
-    "husky": "^8.0.3",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "typescript": "^5.6.3"
@@ -26,10 +25,8 @@
     ]
   },
   "scripts": {
-    "postinstall": "husky install",
     "format": "prettier --cache --write .",
-    "lint": "eslint --cache .",
-    "prepare": "husky"
+    "lint": "eslint --cache ."
   },
   "dependencies": {
     "@emotion/react": "^11.14.0"
