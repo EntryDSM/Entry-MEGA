@@ -8,20 +8,22 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
+    "module": "ESNext",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
-
     "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@entrydsm/design-system": ["../packages/designtoken/index.ts"]
     },
-    "outDir": "build"
+    "outDir": "build",
+    "types": ["react", "react-dom", "@emotion/react/types/css-prop"]
   },
   "extends": "../../tsconfig.base.json",
   "include": ["./src", "vite-env.d.ts"]
