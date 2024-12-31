@@ -1,28 +1,27 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "jsx": "preserve",
     "strict": true,
-    "noUncheckedIndexedAccess": true,
-
-    "jsx": "react-jsx",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@entrydsm/design-system": ["../packages/designtoken/index.ts"]
+      "assets/*": ["./src/assets/*"],
+      "@entry/design-token": ["../packages/design-token/index.ts"]
     },
-    "outDir": "build"
+    "types": ["@emotion/react/types/css-prop"]
   },
-  "extends": "../../tsconfig.base.json",
-  "include": ["./src", "vite-env.d.ts"]
+  "include": ["src"]
 }
