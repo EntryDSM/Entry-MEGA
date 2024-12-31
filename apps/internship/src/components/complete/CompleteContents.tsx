@@ -2,16 +2,16 @@ import { Check } from "../../assets/complete";
 import styled from "@emotion/styled";
 import { color } from "@entry/design-token";
 
-interface isComplete {
+type complete = {
   children?: string;
   isColor?: boolean;
-}
+};
 
-export const CompleteContents = ({ children, isColor }: isComplete) => {
+export const CompleteContents = ({ children, isColor }: complete) => {
   return (
     <CompleteContainer>
       <CompleteContentsContainer>
-        <Check isColor={isColor} />
+        <Check isAdmin={isColor} />
         <CompleteMsg>{children}</CompleteMsg>
       </CompleteContentsContainer>
       <MainBtn type="button" isColor={isColor}>

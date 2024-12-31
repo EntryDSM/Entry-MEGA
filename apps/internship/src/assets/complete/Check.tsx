@@ -1,8 +1,8 @@
-interface isCheck {
-  isColor?: boolean;
+interface check {
+  isAdmin?: boolean;
 }
 
-export const Check = ({ isColor }: isCheck) => (
+export const Check = ({ isAdmin }: check) => (
   <svg
     width="202"
     height="202"
@@ -10,7 +10,7 @@ export const Check = ({ isColor }: isCheck) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    {isColor ? (
+    {isAdmin ? (
       <>
         <path
           fillRule="evenodd"

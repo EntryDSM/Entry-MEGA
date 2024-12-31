@@ -5,7 +5,9 @@ import styled from "@emotion/styled";
 export const Submitted = () => {
   return (
     <SubmittedContainer>
-      <CompleteContents children="제출이 완료 되었습니다!" isColor={true} />
+      <CompleteContents isColor={true}>
+        제출이 완료 되었습니다!
+      </CompleteContents>
     </SubmittedContainer>
   );
 };
