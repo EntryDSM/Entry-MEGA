@@ -4,11 +4,7 @@ import { color, font } from "@entry/design-token";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ImgStore } from "./ImgStore";
-
-type IHeader = {
-  userType: "admin" | "user";
-  isLogin: boolean;
-};
+import { IHeader } from "@/Router";
 
 type InternalButtonProps = {
   text: string;
@@ -86,9 +82,9 @@ const styleUtils = {
 };
 
 export const Header = ({ userType, isLogin }: IHeader) => {
+  const navigate = useNavigate();
   const [isActive, setIsActive] = useState<boolean>(false);
   const style = styleUtils.header(userType, isActive);
-  const navigate = useNavigate();
 
   const handleJobStatusIsClick = () => {
     setIsActive(true);
