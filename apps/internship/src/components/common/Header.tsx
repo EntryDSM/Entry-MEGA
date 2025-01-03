@@ -4,7 +4,7 @@ import { color, font } from "@entry/design-token";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ImgStore } from "./ImgStore";
-import { IHeader } from "@/Router";
+import { IHeader } from "../../../../../packages/types/userType";
 
 type InternalButtonProps = {
   text: string;
