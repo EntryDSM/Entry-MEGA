@@ -1,23 +1,24 @@
 import { React } from "react";
 import { color } from "@entry/design-token";
 import styled from "@emotion/styled";
-import { plus } from "./assets";
+import { Plus } from "./assets";
 
-interface button {
-  isAdmin?: "admin" | "user";
+type ButtonType = {
+  userType?: "admin" | "user";
   children?: string;
-  type?: "addChildren" | "textChildren";
-}
+  isText?: boolean;
+};
 
-export const Button = ({ isAdmin, children, type }: button) => {
+export const Button = ({ userType, children, isText }: ButtonType) => {
   return (
-    <ButtonContainer type="button" isAdmin={isAdmin}>
-      {type == "addChildren" ? <img src={plus} alt="plusImg" /> : children}
+    <ButtonContainer type="button" userType={userType}>
+      {isText ? children : <Plus color="#ffffff" size={22} />}
     </ButtonContainer>
   );
 };
 
-const ButtonContainer = styled.button<{ isAdmin: boolean }>`
+const ButtonContainer = styled.button<Pick<ButtonType, "userType">>`
+  //Pick : ButtonType에서 userType만 선택해 새로운 타입 만들기
   width: 100%;
   height: 70px;
   display: flex;
@@ -26,7 +27,7 @@ const ButtonContainer = styled.button<{ isAdmin: boolean }>`
   color: ${color.extra.white};
   font-size: 25px;
   font-weight: 700;
-  background-color: ${({ isAdmin }) =>
-    isAdmin == "admin" ? color.green[500] : color.orange[500]};
+  background-color: ${({ userType }) =>
+    userType == "admin" ? color.green[500] : color.orange[500]};
   border-radius: 20px;
 `;

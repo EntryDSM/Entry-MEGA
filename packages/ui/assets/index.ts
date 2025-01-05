@@ -1,2 +1,1 @@
-import plus from "./plus.svg";
-export { plus };
+export * from "./Plus";

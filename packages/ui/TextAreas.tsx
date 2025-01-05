@@ -1,43 +1,22 @@
 import styled from "@emotion/styled";
 import { color } from "@entry/design-token";
 import { React } from "react";
+import { Label } from "@entry/ui";
 
-interface textareas {
-  label?: string;
+type TextAreaType = {
+  isWrite?: boolean;
   placeholder?: string;
-  type?: "labelInput" | "labelText";
-}
+  label?: string;
+};
 
-export const TextAreas = ({ label, type, placeholder }: textareas) => {
+export const TextAreas = ({ label, isWrite, placeholder }: TextAreaType) => {
   return (
     <TextAreaContainer>
-      {type == "labelInput" ? (
-        <LabelInput placeholder={placeholder} />
-      ) : (
-        <LabelText>{label}</LabelText>
-      )}
+      <Label label={label} isWrite={isWrite} placeholder={placeholder} />
       <TextArea />
     </TextAreaContainer>
   );
 };
-
-const LabelText = styled.label`
-  font-size: 20px;
-  font-weight: 500;
-  color: ${color.gray[800]};
-`;
-
-const LabelInput = styled.input`
-  font-size: 20px;
-  font-weight: 500;
-  color: ${color.gray[800]};
-  &::placeholder {
-    color: ${color.gray[100]};
-    font-size: 20px;
-    font-weight: 500;
-  }
-  background-color: transparent;
-`;
 
 const TextAreaContainer = styled.div`
   display: flex;
