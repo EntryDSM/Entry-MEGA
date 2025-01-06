@@ -13,6 +13,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@entry/design-token": "*",
+    "@entry/types": "*",
     "@entry/ui": "*",
     "@types/react-query": "^1.2.9",
     "react": "^18.2.0",

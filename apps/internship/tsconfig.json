@@ -19,7 +19,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "assets/*": ["./src/assets/*"],
-      "@entry/design-token": ["../packages/design-token/index.ts"]
+      "@entry/design-token": ["./packages/design-token/index.ts"],
+      "@entry/types": ["./packages/types/*"]
     },
     "types": ["@emotion/react/types/css-prop"]
   },
