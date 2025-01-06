@@ -1,4 +1,4 @@
-export type IHeader = {
+export type HeaderTypes = {
   userType: "admin" | "user";
   isLogin: boolean;
 };
