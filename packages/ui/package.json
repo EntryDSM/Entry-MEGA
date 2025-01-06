@@ -4,5 +4,12 @@
   "description": "",
   "main": "index.ts",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@entry/design-token": "workspace:^",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
 }
