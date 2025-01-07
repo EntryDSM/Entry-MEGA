@@ -3,7 +3,6 @@ import { color } from "@entry/design-token";
 import { React, useState } from "react";
 import { Label, SubBtn } from "@entry/ui";
 import { Check } from "./assets";
-import { css } from "@emotion/react";
 
 type RadioType = {
   userType?: "admin" | "user";
