@@ -20,7 +20,6 @@ export const Router = () => {
           <Route path="/submitted" element={<Submitted />} />
           <Route path="/completed" element={<Completed />} />
           <Route path="/application-writing" element={<ApplicationWriting />} />
-
         </Route>
       </Routes>
     </BrowserRouter>
