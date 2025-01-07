@@ -19,6 +19,7 @@ export const TextAreas = ({ label, isWrite, placeholder }: TextAreaType) => {
 };
 
 const TextAreaContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -28,7 +29,7 @@ const TextAreaContainer = styled.div`
 const TextArea = styled.textarea`
   width: 100%;
   height: 372px;
-  padding: 12px 24px 0 24px;
+  padding: 20px 24px 0 24px;
   font-size: 16px;
   font-weight: 500;
   border: 1px solid ${color.gray[200]};
