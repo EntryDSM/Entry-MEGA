@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ImgStore } from "./ImgStore";
 import { HeaderTypes } from "@entry/types";
+import { LoginModal } from "../modal/LoginModal";
 
 type InternalButtonProps = {
   text: string;
@@ -30,6 +31,7 @@ const styleUtils = {
         color: color.extra.white,
       },
       userSelect: "none",
+      fontWeight: "bold",
     }),
 
   header: (userType: "admin" | "user", isActive: boolean) => ({
@@ -85,9 +87,14 @@ export const Header = ({ userType, isLogin }: HeaderTypes) => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState<boolean>(false);
   const style = styleUtils.header(userType, isActive);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleJobStatusIsClick = () => {
     setIsActive(true);
+  };
+
+  const modalClose = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -113,16 +120,27 @@ export const Header = ({ userType, isLogin }: HeaderTypes) => {
       <div css={style.rightContainer}>
         {userType === "admin" && (
           <div css={style.jobStatu} onClick={handleJobStatusIsClick}>
-            <div>채용 확인</div>
+            <div
+              css={css`
+                font-weight: bold;
+              `}
+            >
+              채용 확인
+            </div>
           </div>
         )}
         <InternalButton
           text={isLogin ? "로그아웃" : "로그인"}
           isAdmin={userType === "admin"}
+          onClick={() => {
+            if (!isLogin) setIsOpen(!isOpen);
+          }}
           // onClick={() => {
           //   /* 로그인/로그아웃 처리 */
           // }}
         ></InternalButton>
+        {/* 로그인 모달 */}
+        <LoginModal isOpen={isOpen} onClose={modalClose} />
       </div>
     </div>
   );
