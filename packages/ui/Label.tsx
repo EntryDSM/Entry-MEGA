@@ -6,13 +6,14 @@ type LabelType = {
   isWrite?: boolean;
   placeholder?: string;
   label?: string;
+  onChange?: () => void;
 };
 
-export const Label = ({ isWrite, placeholder, label }: LabelType) => {
+export const Label = ({ isWrite, placeholder, label, onChange }: LabelType) => {
   return (
     <>
       {isWrite ? (
-        <LabelInput placeholder={placeholder} />
+        <LabelInput placeholder={placeholder} onChange={onChange} />
       ) : (
         <LabelText>{label}</LabelText>
       )}
@@ -27,6 +28,7 @@ const LabelText = styled.label`
 `;
 
 const LabelInput = styled.input`
+  width: 100%;
   font-size: 20px;
   font-weight: 500;
   color: ${color.gray[800]};
