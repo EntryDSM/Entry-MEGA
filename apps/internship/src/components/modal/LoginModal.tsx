@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { color } from "@entry/design-token";
 import github from "../../assets/login/github.svg";
 import Modal from "react-modal";
+
 Modal.setAppElement("#root");
 Modal.defaultStyles.overlay = {};
 Modal.defaultStyles.content = {};

@@ -469,6 +469,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@entry/hooks@workspace:^, @entry/hooks@workspace:packages/hooks":
+  version: 0.0.0-use.local
+  resolution: "@entry/hooks@workspace:packages/hooks"
+  dependencies:
+    "@emotion/react": "npm:^11.14.0"
+    "@emotion/styled": "npm:^11.14.0"
+    "@entry/design-token": "workspace:^"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
+  languageName: unknown
+  linkType: soft
+
+"@entry/types@workspace:^, @entry/types@workspace:packages/types":
+  version: 0.0.0-use.local
+  resolution: "@entry/types@workspace:packages/types"
+  dependencies:
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
+  languageName: unknown
+  linkType: soft
+
 "@entry/ui@npm:*, @entry/ui@workspace:packages/ui":
   version: 0.0.0-use.local
   resolution: "@entry/ui@workspace:packages/ui"
@@ -2659,6 +2680,8 @@ __metadata:
     "@emotion/react": "npm:^11.14.0"
     "@emotion/styled": "npm:^11.14.0"
     "@entry/design-token": "npm:*"
+    "@entry/hooks": "workspace:^"
+    "@entry/types": "workspace:^"
     "@entry/ui": "npm:*"
     "@swc/plugin-emotion": "npm:^8.0.2"
     "@types/node": "npm:^22.10.2"
