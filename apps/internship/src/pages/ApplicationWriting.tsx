@@ -3,6 +3,36 @@ import styled from "@emotion/styled";
 import { Inputs, TextAreas, Radios, SubBtn } from "@entry/ui";
 
 export const ApplicationWriting = () => {
+  const inputDatas = [
+    { label: "이름" },
+    { label: "학번" },
+    { label: "전화번호" },
+  ];
+
+  const radioDatas = [
+    {
+      label: "프로그래밍 경력",
+      datas: [
+        { label: "매우 잘함" },
+        { label: "잘함" },
+        { label: "보통" },
+        { label: "못함" },
+        { label: "매우못함" },
+      ],
+    },
+    {
+      label: "전공",
+      datas: [
+        { label: "Frontend" },
+        { label: "Backend" },
+        { label: "DevOps" },
+        { label: "Design" },
+      ],
+    },
+  ];
+
+  const textAreaDatas = [{ label: "지원동기" }, { label: "자기소개" }];
+
   return (
     <WritingContainer>
       <MainContainer>
@@ -11,31 +41,27 @@ export const ApplicationWriting = () => {
           subTitle="Backend Developer 인턴십 모집"
         />
         <InputContainer>
-          <Inputs isWrite={false} label="이름" />
-          <Inputs isWrite={false} label="학번" />
-          <Inputs isWrite={false} label="전화번호" />
-          <Radios
-            label="프로그래밍 경력"
-            isWrite={false}
-            radioLabel="매우 잘함"
-            userType={"user"}
-            name="Programming"
-          />
-          <Radios
-            label="전공"
-            isWrite={false}
-            radioLabel="Frontend"
-            userType={"user"}
-            name="Major"
-          />
-          <TextAreas isWrite={false} label="지원동기" />
-          <TextAreas isWrite={false} label="자기소개" />
+          {inputDatas.map((data) => {
+            return <Inputs isWrite={false} label={data.label} />;
+          })}
+          {radioDatas.map((data) => {
+            return (
+              <Radios
+                label={data.label}
+                isWrite={false}
+                userType={"user"}
+                name={data.label}
+                datas={data.datas}
+              />
+            );
+          })}
+          {textAreaDatas.map((data) => {
+            return <TextAreas isWrite={false} label={data.label} />;
+          })}
         </InputContainer>
         <SubContainer>
           <CheckContents label="(필수) 저는 개인정보 수집 및 이용에 동의합니다." />
-          <SubBtn userType="user" isText={true}>
-            제출하기
-          </SubBtn>
+          <SubBtn userType="user">제출하기</SubBtn>
         </SubContainer>
       </MainContainer>
     </WritingContainer>
@@ -62,7 +88,8 @@ const SubContainer = styled.div`
 `;
 
 const InputContainer = styled.div`
-  width: 702px;
+  width: 100%;
+  max-width: 702px;
   display: flex;
   flex-direction: column;
   gap: 64px;

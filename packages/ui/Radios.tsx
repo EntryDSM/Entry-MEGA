@@ -12,6 +12,7 @@ type RadioType = {
   radioLabel?: string;
   radioPlaceholder?: string;
   name?: string;
+  datas?: object[];
 };
 
 type RadioItemType = {
@@ -25,7 +26,7 @@ type RadioItemType = {
 const RadioItem = ({
   radioPlaceholder,
   isWrite,
-  userType,
+  userType = "admin",
   radioLabel,
   name,
 }: RadioItemType) => {
@@ -54,21 +55,22 @@ export const Radios = ({
   userType,
   radioPlaceholder,
   name,
+  datas = [],
 }: RadioType) => {
   const [addRadio, setAddRadio] = useState<RadioItemType[]>([]);
   const addRadioClick = () => {
-    setAddRadio([
-      ...addRadio,
+    setAddRadio((prevAddRadio) => [
+      ...prevAddRadio,
       { radioPlaceholder, isWrite, userType, radioLabel },
     ]);
   };
+
   return (
     <RadioContainer>
       <Label label={label} isWrite={isWrite} placeholder={placeholder} />
       <ContentContainer>
         {addRadio.map((item, index) => (
           <RadioItem
-            key={index}
             isWrite={item.isWrite}
             radioPlaceholder={item.radioPlaceholder}
             userType={item.userType}
@@ -77,34 +79,16 @@ export const Radios = ({
           />
         ))}
         {/*아래는 isWrite가 false일 때 뜨는 radio입니다.*/}
-        <RadioItem
-          isWrite={isWrite}
-          radioPlaceholder={radioPlaceholder}
-          userType={userType}
-          radioLabel={radioLabel}
-          name={name}
-        />
-        <RadioItem
-          isWrite={isWrite}
-          radioPlaceholder={radioPlaceholder}
-          userType={userType}
-          radioLabel={radioLabel}
-          name={name}
-        />
-        <RadioItem
-          isWrite={isWrite}
-          radioPlaceholder={radioPlaceholder}
-          userType={userType}
-          radioLabel={radioLabel}
-          name={name}
-        />
-        <RadioItem
-          isWrite={isWrite}
-          radioPlaceholder={radioPlaceholder}
-          userType={userType}
-          radioLabel={radioLabel}
-          name={name}
-        />
+        {datas.map((data) => (
+          <RadioItem
+            isWrite={isWrite}
+            radioPlaceholder={radioPlaceholder}
+            userType={userType}
+            radioLabel={data.label}
+            name={name}
+          />
+        ))}
+
         {isWrite && <SubBtn userType="admin" onClick={addRadioClick} />}
       </ContentContainer>
     </RadioContainer>

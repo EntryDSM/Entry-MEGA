@@ -6,13 +6,12 @@ import { Plus } from "./assets";
 type ButtonType = {
   userType?: "admin" | "user";
   children?: string;
-  isText?: boolean;
 };
 
-export const Button = ({ userType, children, isText }: ButtonType) => {
+export const Button = ({ userType, children }: ButtonType) => {
   return (
     <ButtonContainer type="button" userType={userType}>
-      {isText ? children : <Plus color="#ffffff" size={22} />}
+      {children ? children : <Plus color="#ffffff" size={22} />}
     </ButtonContainer>
   );
 };
