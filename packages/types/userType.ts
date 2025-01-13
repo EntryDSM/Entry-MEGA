@@ -1,5 +1,9 @@
-export type HeaderTypes = {
+export type UserType = {
   userType: "admin" | "user";
+};
+
+export type HeaderTypes = {
+  userType: UserType;
   isLogin: boolean;
 };
 

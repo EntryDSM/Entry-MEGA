@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { color, font } from "@entry/design-token";
 import { useNavigate } from "react-router-dom";
 import { HeaderTypes } from "@entry/types";
@@ -35,7 +35,11 @@ const styleUtils = {
       fontWeight: "bold",
     }),
 
-  header: (userType: "admin" | "user", isActive: boolean) => ({
+  header: (
+    userType: "admin" | "user",
+    isActive: boolean,
+    isScroll: boolean,
+  ) => ({
     container: css({
       width: "100%",
       height: "64px",
@@ -43,7 +47,14 @@ const styleUtils = {
       alignItems: "center",
       padding: "0 22px",
       justifyContent: "space-between",
-      borderBottom: `1px solid ${color.gray[400]}`,
+      position: "fixed",
+      zIndex: "100",
+      backgroundColor: isScroll ? "rgba(255, 255, 255, 0.9)" : "none",
+      transition: "background-color 0.3s ease",
+    }),
+    EntryColor: css({
+      color: isScroll ? "none" : "white",
+      userSelect: "none",
     }),
     carColor: css({
       color: userType === "admin" ? color.green[500] : color.orange[500],
@@ -87,7 +98,8 @@ const styleUtils = {
 export const Header = ({ userType, isLogin }: HeaderTypes) => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState<boolean>(false);
-  const style = styleUtils.header(userType, isActive);
+  const [isScroll, setIsScroll] = useState<boolean>(false);
+  const style = styleUtils.header(userType, isActive, isScroll);
   const { isOpen, openModal, closeModal } = useModal();
 
   const handleJobStatusIsClick = () => {
@@ -102,16 +114,24 @@ export const Header = ({ userType, isLogin }: HeaderTypes) => {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScroll(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div css={style.container}>
+    <div css={style.container} isScroll={isScroll}>
       <div onClick={() => navigate("/")} css={style.logo}>
         {userType === "admin" ? (
-          <ImgStore name="LogoGreen" width="35px" />
+          <ImgStore name="LogoGreen" width="30px" />
         ) : (
-          <ImgStore name="LogoOrange" width="35px" />
+          <ImgStore name="LogoOrange" width="30px" />
         )}
         <div css={style.logoText}>
-          <div>Entry</div>
+          <div css={style.EntryColor}>Entry</div>
           <div css={style.carColor}>Car</div>
           <div css={style.eersColor}>eers</div>
         </div>

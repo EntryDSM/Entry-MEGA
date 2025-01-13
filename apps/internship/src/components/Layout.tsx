@@ -19,7 +19,7 @@ export const Layout = () => {
   return (
     <>
       <Header userType={userType} isLogin={false} />
-      <Outlet />
+      <Outlet context={{ userType }} />
     </>
   );
 };
