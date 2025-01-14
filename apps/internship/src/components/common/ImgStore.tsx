@@ -3,6 +3,7 @@ import LogoOrange from "../../assets/LogoOrange.svg";
 import LogoGreen from "../../assets/LogoGreen.svg";
 import TitleImg from "../../assets/mainCarrers/TitleImg.svg";
 import Write from "../../assets/mainCarrers/write.svg";
+import Dot3 from "../../assets/mainCarrers/kebabBenu.svg";
 
 type imgType = {
   name: string;
@@ -35,6 +36,9 @@ export const ImgStore = ({
       break;
     case "Write":
       Img = { src: Write, width, height };
+      break;
+    case "Dot3":
+      Img = { src: Dot3, width, height };
       break;
     default:
       Img = null;
