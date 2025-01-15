@@ -15,9 +15,9 @@ export const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/job-status" element={<JobStatus />} />
-          <Route path="/submitted" element={<Submitted />} />
+          <Route index element={<Main />} />
+          <Route path="/admin/job-status" element={<JobStatus />} />
+          <Route path="/user/submitted" element={<Submitted />} />
           <Route path="/completed" element={<Completed />} />
           <Route path="/application-writing" element={<ApplicationWriting />} />
         </Route>

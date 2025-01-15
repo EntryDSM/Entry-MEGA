@@ -20,7 +20,8 @@
       "@/*": ["./src/*"],
       "assets/*": ["./src/assets/*"],
       "@entry/design-token": ["./packages/design-token/index.ts"],
-      "@entry/types": ["./packages/types/*"]
+      "@entry/types": ["./packages/types/*"],
+      "@entry/hooks": ["./packages/hooks/*"]
     },
     "types": ["@emotion/react/types/css-prop"]
   },
