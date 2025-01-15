@@ -4,6 +4,7 @@ import { useOutletContext } from "react-router-dom";
 import { color } from "@entry/design-token";
 import { UserType } from "@entry/types";
 import { ImgStore } from "../components/common/ImgStore";
+import { IconStore } from "@entry/ui";
 import { CarrerItem } from "../components/mainCarrer";
 
 export const Main = () => {
@@ -49,7 +50,7 @@ const WriteButton = ({ userType }: UserType) => {
 
   return (
     <WriteButtonField>
-      <ImgStore name="Write" width="20px" height="20px" />글 작성하기
+      <IconStore name="Write" width="20px" height="20px" />글 작성하기
     </WriteButtonField>
   );
 };

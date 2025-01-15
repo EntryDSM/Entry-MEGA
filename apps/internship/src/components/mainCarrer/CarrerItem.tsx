@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import styled from "@emotion/styled";
 import { useOutletContext } from "react-router-dom";
 import { color } from "@entry/design-token";
-import { ImgStore } from "../common/ImgStore";
+import { IconStore } from "@entry/ui";
 import { UserType } from "@entry/types";
 import { useModal } from "@entry/hooks";
 
@@ -27,7 +27,7 @@ export const CarrerItem = () => {
         {userType === "admin" && (
           <KebabContainer onRequestClose={closeModal}>
             <KebabMenu onClick={handleKebabClick}>
-              <ImgStore name="Dot3" width="25px" height="25px" />
+              <IconStore name="KebabMenu" width="25px" height="25px" />
             </KebabMenu>
             {showDelete && (
               <DropMenu>

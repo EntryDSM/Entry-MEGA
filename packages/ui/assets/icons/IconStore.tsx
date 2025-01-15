@@ -1,7 +1,6 @@
 import React from "react";
-import LogoOrange from "../../assets/LogoOrange.svg";
-import LogoGreen from "../../assets/LogoGreen.svg";
-import TitleImg from "../../assets/mainCarrers/TitleImg.svg";
+import Write from "./write.svg";
+import KebabMenu from "./kebabMenu.svg";
 
 type imgType = {
   name: string | number;
@@ -15,7 +14,7 @@ type ImgDetail = {
   height: string;
 };
 
-export const ImgStore = ({
+export const IconStore = ({
   name,
   width = "35px",
   height = "35px",
@@ -23,14 +22,11 @@ export const ImgStore = ({
   let Img: ImgDetail | null = null;
 
   switch (name) {
-    case "LogoGreen":
-      Img = { src: LogoGreen, width, height };
+    case "Write":
+      Img = { src: Write, width, height };
       break;
-    case "LogoOrange":
-      Img = { src: LogoOrange, width, height };
-      break;
-    case "TitleImg":
-      Img = { src: TitleImg, width, height };
+    case "KebabMenu":
+      Img = { src: KebabMenu, width, height };
       break;
     default:
       Img = null;
