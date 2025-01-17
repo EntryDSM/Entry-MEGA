@@ -1,9 +1,14 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Main } from "./pages/Main";
-import { JobStatus } from "./pages/JobStatus";
-import { Submitted } from "./pages/Submitted";
-import { Completed } from "./pages";
-import { Layout } from "./components/Layout";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { Header } from "./components/common/Header";
+import { JobStatus, Home, Submitted, Completed, ApplicationWriting } from "./pages";
+const Layout = () => {
+  return (
+    <>
+      <Header userType="user" isLogin={false} />
+      <Outlet />
+    </>
+  );
+};
 
 export const Router = () => {
   return (
@@ -14,6 +19,7 @@ export const Router = () => {
           <Route path="/admin/job-status" element={<JobStatus />} />
           <Route path="/user/submitted" element={<Submitted />} />
           <Route path="/completed" element={<Completed />} />
+          <Route path="/application-writing" element={<ApplicationWriting />} />
         </Route>
       </Routes>
     </BrowserRouter>
