@@ -4,6 +4,7 @@ import {
 } from "../../../../packages/types/userType";
 import { useLocation, Outlet } from "react-router-dom";
 import { Header } from "./common/Header";
+import { styled } from "@emotion/styled";
 
 const getUserType = (pathname: string) => {
   return (
@@ -19,7 +20,13 @@ export const Layout = () => {
   return (
     <>
       <Header userType={userType} isLogin={false} />
-      <Outlet context={{ userType }} />
+      <Main>
+        <Outlet context={{ userType }} />
+      </Main>
     </>
   );
 };
+
+const Main = styled.div`
+  margin-top: 64px;
+`;

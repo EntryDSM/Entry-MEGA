@@ -1,6 +1,13 @@
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { Header } from "./components/common/Header";
-import { JobStatus, Home, Submitted, Completed, ApplicationWriting } from "./pages";
+import {
+  JobStatus,
+  Main,
+  Submitted,
+  Completed,
+  ApplicationWriting,
+  CreateSupport,
+} from "./pages";
 const Layout = () => {
   return (
     <>
@@ -20,6 +27,7 @@ export const Router = () => {
           <Route path="/user/submitted" element={<Submitted />} />
           <Route path="/completed" element={<Completed />} />
           <Route path="/application-writing" element={<ApplicationWriting />} />
+          <Route path="/create-support" element={<CreateSupport />} />
         </Route>
       </Routes>
     </BrowserRouter>

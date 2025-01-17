@@ -18,6 +18,7 @@ export const SubBtn = ({ userType, children, onClick }: ButtonType) => {
 };
 
 const ButtonContainer = styled.button<Pick<ButtonType, "userType">>`
+  cursor: pointer;
   width: 100px;
   height: 40px;
   display: flex;
