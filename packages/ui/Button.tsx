@@ -6,11 +6,23 @@ import { Plus } from "./assets";
 type ButtonType = {
   userType?: "admin" | "user";
   children?: string;
+  onClick?: () => void;
+  onChange?: () => void;
 };
 
-export const Button = ({ userType, children }: ButtonType) => {
+export const Button = ({
+  userType,
+  children,
+  onClick,
+  onChange,
+}: ButtonType) => {
   return (
-    <ButtonContainer type="button" userType={userType}>
+    <ButtonContainer
+      type="button"
+      userType={userType}
+      onClick={onClick}
+      onChange={onChange}
+    >
       {children ? children : <Plus color="#ffffff" size={22} />}
     </ButtonContainer>
   );
@@ -19,7 +31,7 @@ export const Button = ({ userType, children }: ButtonType) => {
 const ButtonContainer = styled.button<Pick<ButtonType, "userType">>`
   //Pick : ButtonType에서 userType만 선택해 새로운 타입 만들기
   width: 100%;
-  height: 70px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;

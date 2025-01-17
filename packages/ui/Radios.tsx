@@ -111,8 +111,8 @@ const RadioContainer = styled.div`
 `;
 
 const Radio = styled.input<Pick<RadioType, "userType">>`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   padding-left: 24px;
   font-size: 16px;
   font-weight: 500;
@@ -137,13 +137,13 @@ const RadioItemContainer = styled.div`
 
 const RadioFakeContainer = styled.div`
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 `;
 
 const ImgContainer = styled.div`
   position: absolute;
-  top: 3px;
-  left: 3px;
+  top: 1.2px;
+  left: 1.2px;
   pointer-events: none;
 `;

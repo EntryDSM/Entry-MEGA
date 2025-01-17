@@ -7,13 +7,24 @@ type LabelType = {
   placeholder?: string;
   label?: string;
   onChange?: () => void;
+  value?: string;
 };
 
-export const Label = ({ isWrite, placeholder, label, onChange }: LabelType) => {
+export const Label = ({
+  isWrite,
+  placeholder,
+  label,
+  onChange,
+  value,
+}: LabelType) => {
   return (
     <>
       {isWrite ? (
-        <LabelInput placeholder={placeholder} onChange={onChange} />
+        <LabelInput
+          placeholder={placeholder}
+          onChange={onChange}
+          value={value}
+        />
       ) : (
         <LabelText>{label}</LabelText>
       )}
@@ -22,14 +33,14 @@ export const Label = ({ isWrite, placeholder, label, onChange }: LabelType) => {
 };
 
 const LabelText = styled.label`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   color: ${color.gray[800]};
 `;
 
 const LabelInput = styled.input`
   width: 100%;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   color: ${color.gray[800]};
   &::placeholder {

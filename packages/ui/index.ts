@@ -5,3 +5,4 @@ export { Label } from "./Label";
 export { Radios } from "./Radios";
 export { SubBtn } from "./SubBtn";
 export * from "./assets";
+export * from "./InputTextArea";

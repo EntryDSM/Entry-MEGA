@@ -16,13 +16,13 @@ export const Title = ({ mainTitle, subTitle }: TitleType) => {
 };
 
 const MainTitle = styled.div`
-  font-size: 60px;
+  font-size: 48px;
   font-weight: 600;
   color: ${color.gray[900]};
 `;
 
 const SubTitle = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 300;
   color: ${color.gray[400]};
 `;

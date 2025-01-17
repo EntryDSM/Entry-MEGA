@@ -7,13 +7,28 @@ type InputType = {
   isWrite?: boolean;
   placeholder?: string;
   label?: string;
+  value?: string;
+  onKeyDown?: () => void;
+  onChange?: () => void;
 };
 
-export const Inputs = ({ label, isWrite, placeholder }: InputType) => {
+export const Inputs = ({
+  label,
+  isWrite,
+  placeholder,
+  value,
+  onKeyDown,
+  onChange,
+}: InputType) => {
   return (
     <InputContainer>
       <Label label={label} isWrite={isWrite} placeholder={placeholder} />
-      <Input type="text" />
+      <Input
+        type="text"
+        value={value}
+        onKeyDown={onKeyDown}
+        onChange={onChange}
+      />
     </InputContainer>
   );
 };
@@ -28,7 +43,7 @@ const InputContainer = styled.div`
 
 const Input = styled.input`
   width: 100%;
-  height: 70px;
+  height: 60px;
   padding-left: 24px;
   font-size: 16px;
   font-weight: 500;
