@@ -1,8 +1,21 @@
-import { React } from "react";
+import { React, useState } from "react";
 import styled from "@emotion/styled";
+import { useOutletContext } from "react-router-dom";
 import { color } from "@entry/design-token";
+import { IconStore } from "@entry/ui";
+import { UserType } from "@entry/types";
+import { useModal } from "@entry/hooks";
 
 export const CarrerItem = () => {
+  const { userType } = useOutletContext<{ userType: UserType }>();
+  const [showDelete, setShowDelete] = useState<boolean>(false);
+  const { closeModal } = useModal();
+
+  const handleKebabClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setShowDelete(!showDelete);
+  };
+
   return (
     <CarrerItemContainer>
       <Top>
@@ -11,10 +24,21 @@ export const CarrerItem = () => {
           <Focus>집중채용</Focus>
           <Important>중요</Important>
         </ImportantList>
+        {userType === "admin" && (
+          <KebabContainer onRequestClose={closeModal}>
+            <KebabMenu onClick={handleKebabClick}>
+              <IconStore name="KebabMenu" width="25px" height="25px" />
+            </KebabMenu>
+            {showDelete && (
+              <DropMenu>
+                <DropDelete>삭제</DropDelete>
+              </DropMenu>
+            )}
+          </KebabContainer>
+        )}
       </Top>
       <TagsContainer>
         <TechStack>
-          {/* tag api */}
           <TechTag>개발</TechTag>
           <TechTag>Go언어</TechTag>
           <TechTag>프론트엔드</TechTag>
@@ -23,6 +47,48 @@ export const CarrerItem = () => {
     </CarrerItemContainer>
   );
 };
+
+const DropMenu = styled.div`
+  position: absolute;
+  right: -110px;
+  top: 50%;
+  background: white;
+  text-align: center;
+  color: #a1a0a0;
+  border: 1px solid #a1a0a0;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  min-width: 120px;
+  z-index: 1000;
+`;
+
+const DropDelete = styled.div`
+  padding: 8px 16px;
+  font-size: 14px;
+  color: ${color.gray[500]};
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${color.gray[100]};
+    color: #ff8484;
+  }
+`;
+
+const KebabContainer = styled.div`
+  position: relative;
+  margin-left: auto;
+`;
+
+const KebabMenu = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+`;
 
 const TagsContainer = styled.div`
   width: 100%;
@@ -73,6 +139,7 @@ const ImportantList = styled.div`
 `;
 
 const Top = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   margin-top: 2%;
@@ -103,3 +170,5 @@ const CarrerItemContainer = styled.div`
     transform: translateY(-2px);
   }
 `;
+
+export default CarrerItem;
