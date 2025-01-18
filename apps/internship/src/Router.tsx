@@ -1,5 +1,4 @@
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import { Header } from "./components/common/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   JobStatus,
   Main,
@@ -8,14 +7,7 @@ import {
   ApplicationWriting,
   CreateSupport,
 } from "./pages";
-const Layout = () => {
-  return (
-    <>
-      <Header userType="user" isLogin={false} />
-      <Outlet />
-    </>
-  );
-};
+import { Layout } from "./components/Layout";
 
 export const Router = () => {
   return (

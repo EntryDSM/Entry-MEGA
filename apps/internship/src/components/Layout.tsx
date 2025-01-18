@@ -4,7 +4,7 @@ import {
 } from "../../../../packages/types/userType";
 import { useLocation, Outlet } from "react-router-dom";
 import { Header } from "./common/Header";
-import { styled } from "@emotion/styled";
+import styled from "@emotion/styled";
 
 const getUserType = (pathname: string) => {
   return (

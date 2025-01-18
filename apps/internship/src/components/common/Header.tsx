@@ -48,12 +48,12 @@ const styleUtils = {
       padding: "0 22px",
       justifyContent: "space-between",
       position: "fixed",
+      top: "0",
       zIndex: "100",
       backgroundColor: isScroll ? "rgba(255, 255, 255, 0.9)" : "none",
       transition: "background-color 0.3s ease",
     }),
     EntryColor: css({
-      color: isScroll ? "none" : "white",
       userSelect: "none",
     }),
     carColor: css({
@@ -116,7 +116,7 @@ export const Header = ({ userType, isLogin }: HeaderTypes) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScroll(window.scrollY > 0);
+      setIsScroll(window.scrollY > 200);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

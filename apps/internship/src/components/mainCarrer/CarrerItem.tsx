@@ -25,7 +25,7 @@ export const CarrerItem = () => {
           <Important>중요</Important>
         </ImportantList>
         {userType === "admin" && (
-          <KebabContainer onRequestClose={closeModal}>
+          <KebabContainer>
             <KebabMenu onClick={handleKebabClick}>
               <IconStore name="KebabMenu" width="25px" height="25px" />
             </KebabMenu>
