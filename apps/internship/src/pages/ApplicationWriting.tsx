@@ -68,7 +68,7 @@ export const ApplicationWriting = () => {
 const WritingContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin: 100px 0;
+  margin: 180px 0;
 `;
 
 const MainContainer = styled.div`

@@ -190,7 +190,7 @@ const EditSupportContainer = styled.div`
   width: 100vw;
   display: flex;
   justify-content: center;
-  margin: 164px 0;
+  margin: 180px 0;
 `;
 
 const KeyWordContainer = styled.div`
