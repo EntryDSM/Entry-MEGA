@@ -7,13 +7,21 @@ type TextAreaType = {
   isWrite?: boolean;
   placeholder?: string;
   label?: string;
+  onChange?: () => void;
+  value?: string;
 };
 
-export const TextAreas = ({ label, isWrite, placeholder }: TextAreaType) => {
+export const TextAreas = ({
+  label,
+  isWrite,
+  placeholder,
+  onChange,
+  value,
+}: TextAreaType) => {
   return (
     <TextAreaContainer>
       <Label label={label} isWrite={isWrite} placeholder={placeholder} />
-      <TextArea />
+      <TextArea onChange={onChange} value={value} />
     </TextAreaContainer>
   );
 };

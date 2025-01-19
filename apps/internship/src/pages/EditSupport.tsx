@@ -3,10 +3,10 @@ import { Inputs, Label, Button, InputTextArea, SubBtn } from "@entry/ui";
 import { useRef, useState, React, useEffect } from "react";
 import styled from "@emotion/styled";
 
-export const CreateSupport = () => {
+export const EditSupport = () => {
   const fileRef = useRef();
   const [keywordValue, setKeywordValue] = useState<string>("");
-  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [isFocused, setIsFocused] = useState<boolean>(true); //checkbox 체크 유무 관리
   const [isImportant, setIsImportant] = useState<boolean>(false);
   const [datas, setDatas] = useState<{
     title: string;
@@ -15,13 +15,17 @@ export const CreateSupport = () => {
     areaInput: { valueInput: string; valueArea: string }[];
     checkbox: { focused: boolean; important: boolean };
   }>({
-    title: "",
-    keyword: [],
-    imgUrl: "",
+    title: "엔트리 인턴 모집",
+    keyword: ["엔트리", "인턴"],
+    imgUrl: "https://entryIntern.jpg",
     areaInput: [
       {
-        valueInput: "",
-        valueArea: "",
+        valueInput: "엔트리 인턴 모집1",
+        valueArea: "역할 : Design, Frontend, Backend, DevOps",
+      },
+      {
+        valueInput: "엔트리 인턴 모집2",
+        valueArea: "2달 동안 진행할 예정입니다.",
       },
     ],
     checkbox: { focused: isFocused, important: isImportant },
@@ -114,11 +118,11 @@ export const CreateSupport = () => {
   console.log(datas);
 
   return (
-    <CreateSupportContainer>
+    <EditSupportContainer>
       <TitleContainer>
         <Title
-          mainTitle="지원페이지 제작하기"
-          subTitle="신청 페이지를 만들 수 있어요"
+          mainTitle="지원페이지 수정하기"
+          subTitle="신청 페이지를 수정할 수 있어요"
         />
         <InputContainer>
           <Inputs
@@ -175,14 +179,14 @@ export const CreateSupport = () => {
               isCheck={isImportant}
             />
           </CheckBoxContainer>
-          <SubBtn userType="admin">다음으로</SubBtn>
+          <SubBtn userType="admin">수정완료</SubBtn>
         </CheckContainer>
       </TitleContainer>
-    </CreateSupportContainer>
+    </EditSupportContainer>
   );
 };
 
-const CreateSupportContainer = styled.div`
+const EditSupportContainer = styled.div`
   width: 100vw;
   display: flex;
   justify-content: center;

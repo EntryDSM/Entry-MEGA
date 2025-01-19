@@ -26,6 +26,7 @@ const CompleteContainer = styled.div`
   flex-direction: column;
   gap: 72px;
   align-items: center;
+  margin-top: 120px;
 `;
 
 const CompleteContentsContainer = styled.div`

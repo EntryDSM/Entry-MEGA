@@ -6,6 +6,7 @@ import {
   Completed,
   ApplicationWriting,
   CreateSupport,
+  EditSupport,
 } from "./pages";
 import { Layout } from "./components/Layout";
 
@@ -20,6 +21,7 @@ export const Router = () => {
           <Route path="/completed" element={<Completed />} />
           <Route path="/application-writing" element={<ApplicationWriting />} />
           <Route path="/create-support" element={<CreateSupport />} />
+          <Route path="/edit-support" element={<EditSupport />} />
         </Route>
       </Routes>
     </BrowserRouter>

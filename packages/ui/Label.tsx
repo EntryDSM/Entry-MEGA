@@ -23,7 +23,7 @@ export const Label = ({
         <LabelInput
           placeholder={placeholder}
           onChange={onChange}
-          value={value}
+          value={value} 
         />
       ) : (
         <LabelText>{label}</LabelText>
@@ -45,7 +45,7 @@ const LabelInput = styled.input`
   color: ${color.gray[800]};
   &::placeholder {
     color: ${color.gray[100]};
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
   }
   background-color: transparent;

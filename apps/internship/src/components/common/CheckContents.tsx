@@ -5,11 +5,11 @@ import { Check } from "@entry/ui";
 
 type CheckType = {
   label?: string;
+  isCheck?: boolean;
+  setIsCheck?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const CheckContents = ({ label }: CheckType) => {
-  const [isCheck, setIsCheck] = useState<boolean>(false);
-
+export const CheckContents = ({ label, isCheck, setIsCheck }: CheckType) => {
   const checkClick = () => {
     setIsCheck(!isCheck);
   };
