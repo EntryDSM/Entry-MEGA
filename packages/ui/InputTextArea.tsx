@@ -5,17 +5,21 @@ type InputTextAreaType = {
   label: string;
   valueInput?: string;
   valueArea?: string;
+  inputChange?: () => void;
+  areaChange?: () => void;
 };
 
 export const InputTextArea = ({
   label,
   valueArea,
   valueInput,
+  inputChange,
+  areaChange,
 }: InputTextAreaType) => {
   return (
     <Container>
-      <Inputs label={label} value={valueInput} />
-      <TextAreas value={valueArea} />
+      <Inputs label={label} value={valueInput} onChange={inputChange} />
+      <TextAreas value={valueArea} onChange={areaChange} />
     </Container>
   );
 };

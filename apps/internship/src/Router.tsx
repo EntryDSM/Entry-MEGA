@@ -7,6 +7,7 @@ import {
   Completed,
   ApplicationWriting,
   CreateSupport,
+  EditSupport,
 } from "./pages";
 const Layout = () => {
   return (
@@ -28,6 +29,7 @@ export const Router = () => {
           <Route path="/completed" element={<Completed />} />
           <Route path="/application-writing" element={<ApplicationWriting />} />
           <Route path="/create-support" element={<CreateSupport />} />
+          <Route path="/edit-support" element={<EditSupport />} />
         </Route>
       </Routes>
     </BrowserRouter>

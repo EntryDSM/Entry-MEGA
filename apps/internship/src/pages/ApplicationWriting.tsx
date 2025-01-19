@@ -36,10 +36,7 @@ export const ApplicationWriting = () => {
   return (
     <WritingContainer>
       <MainContainer>
-        <Title
-          mainTitle="지원서 작성하기"
-          subTitle="Backend Developer 인턴십 모집"
-        />
+        <Title mainTitle="지원서 작성하기" />
         <InputContainer>
           {inputDatas.map((data) => {
             return <Inputs isWrite={false} label={data.label} />;

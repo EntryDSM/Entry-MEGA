@@ -10,6 +10,8 @@ type InputType = {
   value?: string;
   onKeyDown?: () => void;
   onChange?: () => void;
+  onBlur?: () => void;
+  onCompositionEnd?: () => void;
 };
 
 export const Inputs = ({
@@ -19,6 +21,8 @@ export const Inputs = ({
   value,
   onKeyDown,
   onChange,
+  onBlur,
+  onCompositionEnd,
 }: InputType) => {
   return (
     <InputContainer>
@@ -28,6 +32,8 @@ export const Inputs = ({
         value={value}
         onKeyDown={onKeyDown}
         onChange={onChange}
+        onBlur={onBlur}
+        onCompositionEnd={onCompositionEnd}
       />
     </InputContainer>
   );
