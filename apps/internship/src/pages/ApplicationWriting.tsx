@@ -1,8 +1,11 @@
 import { Title, CheckContents } from "../components";
 import styled from "@emotion/styled";
 import { Inputs, TextAreas, Radios, SubBtn } from "@entry/ui";
+import { useNavigate } from "react-router-dom";
 
 export const ApplicationWriting = () => {
+  const navigate = useNavigate();
+
   const inputDatas = [
     { label: "이름" },
     { label: "학번" },
@@ -33,6 +36,10 @@ export const ApplicationWriting = () => {
 
   const textAreaDatas = [{ label: "지원동기" }, { label: "자기소개" }];
 
+  const submitClick = () => {
+    navigate("/user/submitted");
+  };
+
   return (
     <WritingContainer>
       <MainContainer>
@@ -58,7 +65,9 @@ export const ApplicationWriting = () => {
         </InputContainer>
         <SubContainer>
           <CheckContents label="(필수) 저는 개인정보 수집 및 이용에 동의합니다." />
-          <SubBtn userType="user">제출하기</SubBtn>
+          <SubBtn userType="user" onClick={submitClick}>
+            제출하기
+          </SubBtn>
         </SubContainer>
       </MainContainer>
     </WritingContainer>

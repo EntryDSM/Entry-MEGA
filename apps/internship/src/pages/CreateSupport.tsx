@@ -2,6 +2,7 @@ import { CheckContents, Title, KeyWord } from "../components";
 import { Inputs, Label, Button, InputTextArea, SubBtn } from "@entry/ui";
 import { useRef, useState, React, useEffect } from "react";
 import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
 
 export const CreateSupport = () => {
   const fileRef = useRef();
@@ -26,6 +27,12 @@ export const CreateSupport = () => {
     ],
     checkbox: { focused: isFocused, important: isImportant },
   });
+
+  const navigate = useNavigate();
+
+  const completedClick = () => {
+    navigate("/completed");
+  };
 
   const imgBtnClick = () => {
     fileRef.current?.showPicker();
@@ -129,7 +136,7 @@ export const CreateSupport = () => {
           <>
             <Inputs
               label="키워드"
-              onKeyDown={enterKeyWord}
+              onKeyUp={enterKeyWord}
               value={keywordValue}
               onChange={(e) => setKeywordValue(e.target.value)}
             />
@@ -175,7 +182,9 @@ export const CreateSupport = () => {
               isCheck={isImportant}
             />
           </CheckBoxContainer>
-          <SubBtn userType="admin">다음으로</SubBtn>
+          <SubBtn userType="admin" onClick={completedClick}>
+            작성완료
+          </SubBtn>
         </CheckContainer>
       </TitleContainer>
     </CreateSupportContainer>
