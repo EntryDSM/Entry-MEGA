@@ -1,6 +1,7 @@
 import { Check } from "../../assets/complete";
 import styled from "@emotion/styled";
 import { color } from "@entry/design-token";
+import { useNavigate } from "react-router-dom";
 
 type complete = {
   children?: string;
@@ -8,13 +9,18 @@ type complete = {
 };
 
 export const CompleteContents = ({ children, isColor }: complete) => {
+  const navigate = useNavigate();
+
+  const mainClick = () => {
+    navigate("/");
+  };
   return (
     <CompleteContainer>
       <CompleteContentsContainer>
         <Check isAdmin={isColor} />
         <CompleteMsg>{children}</CompleteMsg>
       </CompleteContentsContainer>
-      <MainBtn type="button" isColor={isColor}>
+      <MainBtn type="button" isColor={isColor} onClick={mainClick}>
         메인으로
       </MainBtn>
     </CompleteContainer>
@@ -26,6 +32,7 @@ const CompleteContainer = styled.div`
   flex-direction: column;
   gap: 72px;
   align-items: center;
+  margin-top: 100px;
 `;
 
 const CompleteContentsContainer = styled.div`

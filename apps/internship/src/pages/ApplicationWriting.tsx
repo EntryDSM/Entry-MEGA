@@ -1,8 +1,11 @@
 import { Title, CheckContents } from "../components";
 import styled from "@emotion/styled";
 import { Inputs, TextAreas, Radios, SubBtn } from "@entry/ui";
+import { useNavigate } from "react-router-dom";
 
 export const ApplicationWriting = () => {
+  const navigate = useNavigate();
+
   const inputDatas = [
     { label: "이름" },
     { label: "학번" },
@@ -33,13 +36,14 @@ export const ApplicationWriting = () => {
 
   const textAreaDatas = [{ label: "지원동기" }, { label: "자기소개" }];
 
+  const submitClick = () => {
+    navigate("/user/submitted");
+  };
+
   return (
     <WritingContainer>
       <MainContainer>
-        <Title
-          mainTitle="지원서 작성하기"
-          subTitle="Backend Developer 인턴십 모집"
-        />
+        <Title mainTitle="지원서 작성하기" />
         <InputContainer>
           {inputDatas.map((data) => {
             return <Inputs isWrite={false} label={data.label} />;
@@ -61,7 +65,9 @@ export const ApplicationWriting = () => {
         </InputContainer>
         <SubContainer>
           <CheckContents label="(필수) 저는 개인정보 수집 및 이용에 동의합니다." />
-          <SubBtn userType="user">제출하기</SubBtn>
+          <SubBtn userType="user" onClick={submitClick}>
+            제출하기
+          </SubBtn>
         </SubContainer>
       </MainContainer>
     </WritingContainer>
@@ -71,7 +77,7 @@ export const ApplicationWriting = () => {
 const WritingContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin: 100px 0;
+  margin: 180px 0;
 `;
 
 const MainContainer = styled.div`

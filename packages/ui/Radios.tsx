@@ -13,6 +13,8 @@ type RadioType = {
   radioPlaceholder?: string;
   name?: string;
   datas?: object[];
+  setAddRadio?: React.Dispatch<React.SetStateAction<RadioItemType[]>>;
+  addRadio?: object[];
 };
 
 type RadioItemType = {
@@ -21,6 +23,7 @@ type RadioItemType = {
   radioLabel?: string;
   isWrite?: boolean;
   name?: string;
+  onChange?: () => void;
 };
 
 const RadioItem = ({
@@ -29,11 +32,17 @@ const RadioItem = ({
   userType = "admin",
   radioLabel,
   name,
+  onChange,
 }: RadioItemType) => {
   return (
     <RadioItemContainer>
       <RadioFakeContainer>
-        <Radio type="radio" userType={userType} name={name} />
+        <Radio
+          type="radio"
+          userType={userType}
+          name={name}
+          onChange={() => onChange?.(radioLabel || "")}
+        />
         <ImgContainer>
           <Check />
         </ImgContainer>
@@ -42,6 +51,7 @@ const RadioItem = ({
         isWrite={isWrite}
         placeholder={radioPlaceholder}
         label={radioLabel}
+        onChange={(e) => onChange?.((e.target as HTMLInputElement).value)}
       />
     </RadioItemContainer>
   );
@@ -55,14 +65,21 @@ export const Radios = ({
   userType,
   radioPlaceholder,
   name,
+  setAddRadio,
+  addRadio = [],
   datas = [],
 }: RadioType) => {
-  const [addRadio, setAddRadio] = useState<RadioItemType[]>([]);
   const addRadioClick = () => {
     setAddRadio((prevAddRadio) => [
       ...prevAddRadio,
-      { radioPlaceholder, isWrite, userType, radioLabel },
+      { radioPlaceholder, isWrite, userType, radioLabel: "", value: "" },
     ]);
+  };
+
+  const handleRadioClick = (index: number, value: string) => {
+    setAddRadio((prev) =>
+      prev.map((item, i) => (i === index ? { ...item, value } : item)),
+    );
   };
 
   return (
@@ -76,6 +93,7 @@ export const Radios = ({
             userType={item.userType}
             radioLabel={item.radioLabel}
             name={name}
+            onChange={(value) => handleRadioClick(index, value)}
           />
         ))}
         {/*아래는 isWrite가 false일 때 뜨는 radio입니다.*/}
