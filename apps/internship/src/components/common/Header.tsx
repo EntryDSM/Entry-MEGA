@@ -49,7 +49,7 @@ const styleUtils = {
       justifyContent: "space-between",
       position: "fixed",
       top: "0",
-      zIndex: "100",
+      zIndex: "10",
       backgroundColor: isScroll ? "rgba(255, 255, 255, 0.9)" : "none",
       transition: "background-color 0.3s ease",
     }),

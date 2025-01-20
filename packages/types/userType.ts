@@ -11,6 +11,7 @@ export const ROUTE_USER_TYPES = {
   "/": "admin",
   "/job-status": "admin",
   "/submitted": "user",
+  "/post": "admin",
 } as const;
 
 export const DEFAULT_USER_TYPE = "user";
