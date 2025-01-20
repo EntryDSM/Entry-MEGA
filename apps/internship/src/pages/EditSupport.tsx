@@ -2,6 +2,7 @@ import { CheckContents, Title, KeyWord } from "../components";
 import { Inputs, Label, Button, InputTextArea, SubBtn } from "@entry/ui";
 import { useRef, useState, React, useEffect } from "react";
 import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
 
 export const EditSupport = () => {
   const fileRef = useRef();
@@ -30,6 +31,12 @@ export const EditSupport = () => {
     ],
     checkbox: { focused: isFocused, important: isImportant },
   });
+
+  const navigate = useNavigate();
+
+  const editClick = () => {
+    navigate("/edited");
+  };
 
   const imgBtnClick = () => {
     fileRef.current?.showPicker();
@@ -133,7 +140,7 @@ export const EditSupport = () => {
           <>
             <Inputs
               label="키워드"
-              onKeyDown={enterKeyWord}
+              onKeyUp={enterKeyWord}
               value={keywordValue}
               onChange={(e) => setKeywordValue(e.target.value)}
             />
@@ -179,7 +186,9 @@ export const EditSupport = () => {
               isCheck={isImportant}
             />
           </CheckBoxContainer>
-          <SubBtn userType="admin">수정완료</SubBtn>
+          <SubBtn userType="admin" onClick={editClick}>
+            수정완료
+          </SubBtn>
         </CheckContainer>
       </TitleContainer>
     </EditSupportContainer>
