@@ -1,23 +1,26 @@
 import { React, useState } from "react";
 import styled from "@emotion/styled";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 import { color } from "@entry/design-token";
 import { IconStore } from "@entry/ui";
 import { UserType } from "@entry/types";
-import { useModal } from "@entry/hooks";
 
-export const CarrerItem = () => {
+export const CarrerItem = ({ id }: { id: string }) => {
   const { userType } = useOutletContext<{ userType: UserType }>();
+  const navigate = useNavigate();
   const [showDelete, setShowDelete] = useState<boolean>(false);
-  const { closeModal } = useModal();
 
   const handleKebabClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setShowDelete(!showDelete);
   };
 
+  const moveToDetailPost = () => {
+    navigate(`/post/${id}`);
+  };
+
   return (
-    <CarrerItemContainer>
+    <CarrerItemContainer onClick={moveToDetailPost}>
       <Top>
         <ListItemContent>과자 배달부 모집 ( 비정규직 )</ListItemContent>
         <ImportantList>
