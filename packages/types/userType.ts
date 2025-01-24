@@ -18,4 +18,4 @@ export const ROUTE_USER_TYPES = {
   "/completed": "admin",
 } as const;
 
-export const DEFAULT_USER_TYPE = "user";
+export const DEFAULT_USER_TYPE = "admin";
